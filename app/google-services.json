@@ -1,26 +1,74 @@
 {
   "project_info": {
-    "project_number": "YOUR_PROJECT_NUMBER",
-    "project_id": "YOUR_PROJECT_ID",
-    "storage_bucket": "YOUR_PROJECT_ID.appspot.com"
+    "project_number": "784822710231",
+    "firebase_url": "https://ecommerce-app-8c9fe-default-rtdb.firebaseio.com",
+    "project_id": "ecommerce-app-8c9fe",
+    "storage_bucket": "ecommerce-app-8c9fe.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:YOUR_PROJECT_NUMBER:android:YOUR_APP_HASH",
+        "mobilesdk_app_id": "1:784822710231:android:bfa6733495010ca33da592",
         "android_client_info": {
-          "package_name": "com.saiem.sportsapp"
+          "package_name": "com.example.ecommerceapp"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "784822710231-g5qriccrkb24lljikgsqu074p7epeo5g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ecommerceapp",
+            "certificate_hash": "1598c115d6cb5524dd9008931935618c574e6d16"
+          }
+        },
+        {
+          "client_id": "784822710231-b1het5uutocpgekf1tc4srmk7a1hqj79.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "YOUR_FIREBASE_API_KEY"
+          "current_key": "AIzaSyB_bRhz9NJoDe3rF8PaQE_wSJ9aceo1VAY"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "784822710231-b1het5uutocpgekf1tc4srmk7a1hqj79.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:784822710231:android:30c0a8704693c43b3da592",
+        "android_client_info": {
+          "package_name": "com.saiem.sportsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "784822710231-b1het5uutocpgekf1tc4srmk7a1hqj79.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_bRhz9NJoDe3rF8PaQE_wSJ9aceo1VAY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "784822710231-b1het5uutocpgekf1tc4srmk7a1hqj79.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
