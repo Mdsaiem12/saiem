@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/ic_home"
+        android:title="@string/tab_home" />
+    <item
+        android:id="@+id/liveScoresFragment"
+        android:icon="@drawable/ic_live"
+        android:title="@string/tab_live" />
+    <item
+        android:id="@+id/channelsFragment"
+        android:icon="@drawable/ic_tv"
+        android:title="@string/tab_channels" />
+</menu>
