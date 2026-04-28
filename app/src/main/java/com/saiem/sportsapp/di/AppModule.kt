@@ -11,6 +11,7 @@ import com.saiem.sportsapp.data.local.dao.MatchDao
 import com.saiem.sportsapp.data.remote.api.CricketApiService
 import com.saiem.sportsapp.data.remote.api.FootballDataApiService
 import com.saiem.sportsapp.data.remote.api.StreamApiService
+import android.util.Log
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -58,7 +59,9 @@ object AppModule {
             okHttpClient.newBuilder()
                 .addInterceptor { chain ->
                     val key = remoteConfig.getString("football_data_api_key")
-                        .ifBlank { "YOUR_FOOTBALL_DATA_API_KEY" }
+                    if (key.isBlank()) {
+                        Log.e("AppModule", "football_data_api_key is not set in Firebase RemoteConfig")
+                    }
                     val req = chain.request().newBuilder()
                         .header("X-Auth-Token", key)
                         .build()
