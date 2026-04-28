@@ -49,13 +49,18 @@ object AppModule {
     @Provides
     @Singleton
     @Named("football")
-    fun provideFootballRetrofit(okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
+    fun provideFootballRetrofit(
+        okHttpClient: OkHttpClient,
+        remoteConfig: FirebaseRemoteConfig
+    ): Retrofit = Retrofit.Builder()
         .baseUrl("https://api.football-data.org/v4/")
         .client(
             okHttpClient.newBuilder()
                 .addInterceptor { chain ->
+                    val key = remoteConfig.getString("football_data_api_key")
+                        .ifBlank { "YOUR_FOOTBALL_DATA_API_KEY" }
                     val req = chain.request().newBuilder()
-                        .header("X-Auth-Token", "YOUR_FOOTBALL_DATA_API_KEY")
+                        .header("X-Auth-Token", key)
                         .build()
                     chain.proceed(req)
                 }

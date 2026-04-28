@@ -45,10 +45,11 @@ class SportsRepository @Inject constructor(
     fun getLiveFootballMatches(): Flow<Resource<List<Match>>> = flow {
         emit(Resource.Loading())
 
-        // 1. Cached data first
-        matchDao.getLiveMatches()
+        // 1. Cached data first (take one emission only – Room Flow never completes)
+        val cached = matchDao.getLiveMatches()
             .map { entities -> entities.map(MatchMapper::fromEntity) }
-            .collect { cached -> if (cached.isNotEmpty()) emit(Resource.Success(cached)) }
+            .first()
+        if (cached.isNotEmpty()) emit(Resource.Success(cached))
 
         // 2. Try API
         try {
@@ -225,10 +226,11 @@ class SportsRepository @Inject constructor(
     fun getTvChannels(): Flow<Resource<List<TvChannel>>> = flow {
         emit(Resource.Loading())
 
-        // Cached first
-        channelDao.getAllChannels()
+        // Cached first (take one emission only – Room Flow never completes)
+        val cachedChannels = channelDao.getAllChannels()
             .map { entities -> entities.map(MatchMapper::channelFromEntity) }
-            .collect { cached -> if (cached.isNotEmpty()) emit(Resource.Success(cached)) }
+            .first()
+        if (cachedChannels.isNotEmpty()) emit(Resource.Success(cachedChannels))
 
         // Firebase Firestore channels
         try {
